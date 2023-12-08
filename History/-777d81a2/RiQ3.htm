@@ -1,0 +1,60 @@
+description = "Modelo 1"
+==
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>Winter CMS - {{ this.page.title }}</title>
+        <meta name="description" content="{{ this.page.meta_description }}">
+        <meta name="title" content="{{ this.page.meta_title }}">
+        <meta name="author" content="Winter CMS">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="generator" content="Winter CMS">
+       
+        <link href="{{ 'assets/css/bootstrap-grid.min.css'|theme }}" rel="stylesheet">
+        <link href="{{ 'assets/css/style.min.css'|theme }}" rel="stylesheet">
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.12.1/css/all.css" />
+        <script src="{{asset('assets/js/jquery.js'|theme )}}"></script>
+            <style>
+            .banner:before {
+        position: absolute;
+        top: 0;
+        left: 0;
+        content: "";
+        width: 50%;
+        height: 100%;
+        background-image: url({{asset('assets/imgs/fd-header.jpg'|theme)}}); 
+        
+        background-position: center;
+        background-size: cover
+        }
+        .qd-solucoes:before {
+        position: absolute;
+        top: 0;
+        left: 0;
+        content: "";
+        width: 50%;
+        height: 100%;
+        background-image: url({{asset('assets/imgs/fd-solucoes.jpg'|theme)}});
+        background-position: center;
+        background-size: cover
+    }
+        </style>
+
+
+        {% styles %}
+    </head>
+    <body>
+    
+        {% partial "header" %}
+         {% page %}
+         {% partial "footer" %}
+        
+        
+        <script src="{{asset('assets/js/bootstrap.js'|theme) }}"></script>
+        
+       {% framework extras %} 
+        {% scripts %}
+
+    </body>
+</html>

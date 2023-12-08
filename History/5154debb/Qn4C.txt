@@ -1,0 +1,14 @@
+Modelo 1
+Index
+    -Index_Titulo_left
+    -Index_Texto_left
+
+    -Index_Image_single_main
+    -Index_Image_single_title
+    -Index_Title_text
+    -Index_Sub_title
+
+Empresa
+    -Empresa_Pre_title(Um pouco sobre nós)
+    -Empresa_Title_single_main
+    -Empresa_Title_text

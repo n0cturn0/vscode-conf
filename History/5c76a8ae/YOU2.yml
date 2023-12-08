@@ -1,0 +1,44 @@
+version: '3.9'
+
+services:
+  php:
+    image: php:8.1-fpm
+    container_name: php for winter CMS
+    volumes:
+      - ./app:/var/www/html
+    networks:
+      - default
+    environment:
+      - APP_ENV=dev
+      - PHP_MEMORY_LIMIT=1G
+      - PHP_MAX_EXECUTION_TIME=300
+      - PHP_UPLOAD_MAX_FILESIZE=100M
+      - PHP_POST_MAX_SIZE=100M
+      - PHP_EXTENSIONS=cURL,GD,Mbstring,OpenSSL,PDO,SimpleXML,ZipArchive
+
+  mysql:
+    image: mysql:8.0
+    container_name: mysql for winter CMS
+    volumes:
+      - ./data:/var/lib/mysql
+    networks:
+      - default
+    environment:
+      - MYSQL_DATABASE=winter
+      - MYSQL_USER=my_user
+      - MYSQL_PASSWORD=my_password
+      - MYSQL_ROOT_PASSWORD=my_root_password
+
+  nginx:
+    image: nginx:1.21
+    container_name: nginx
+    volumes:
+      - ./conf.d:/etc/nginx/conf.d
+      - ./app:/var/www/html
+    ports:
+      - 80:80
+    networks:
+      - default
+
+networks:
+  default:

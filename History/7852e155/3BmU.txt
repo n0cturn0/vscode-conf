@@ -1,0 +1,17 @@
+Instalar o plgin
+ -  BDD Feature Editor
+ -  salvar o arquivo com a extensão .feature
+
+ Informações e detalhe da sintaxe de plugin
+ https://cucumber.io/docs/gherkin/
+
+
+ BEHAT - É uma ferramenta para automatizar testes de comportamento, ou seja, testes do nosso negócio. 
+ E esses testes podem ser totalmente relacionados ao negócio, podem ser relacionados à tecnologia que estamos utilizando, 
+ pode ser direto no navegador, 
+ podemos escrever o cenário que quisermos e vamos configurar o Behat para entender o que queremos que ele teste.
+
+
+
+ Selenium 
+ www.Selenium.dev

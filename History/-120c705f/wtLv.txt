@@ -1,0 +1,5 @@
+Converter String para Numerto
+
+Number.parseInt(n)
+Number.parseFloat(n)
+Number(n)

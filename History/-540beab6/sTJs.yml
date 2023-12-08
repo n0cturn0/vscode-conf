@@ -1,0 +1,56 @@
+version: '3.5'
+
+# Networks
+networks:
+  redecms:
+    driver: bridge
+
+# Services
+services:
+
+  # PHP FPM Service
+  php:
+    container_name: php
+    build:
+      dockerfile: Dockerfile
+      context: .
+    volumes:
+      - 'C:\projetos\php-winter\winter:/var/www/html'
+      - './php-logging.conf:/usr/local/etc/php-fpm.d/zz-log.conf'
+    networks:
+      - redecms
+
+  # Nginx Service
+  nginx:
+    container_name: web
+    image: nginx:latest
+    ports:
+      - 8080:80
+    links:
+      - 'php'
+    volumes:
+      - 'C:\projetos\php-winter\winter:/var/www/html'
+      - './nginx-conf:/etc/nginx/conf.d'
+    networks:
+      - redecms
+
+ # MariaDB Service
+  mariadb:
+    container_name: db
+    image: mariadb:10.9
+    environment:
+      MYSQL_ROOT_PASSWORD: 123456
+    ports:
+    - "3306:3306"
+    volumes:
+      - './mysqldata:/var/lib/mysql'
+    networks:
+      - redecms
+      
+
+# Volumes
+volumes:
+  mysqldata:
+
+
+  

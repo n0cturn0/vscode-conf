@@ -1,0 +1,44 @@
+version: '3.9'
+
+services:
+  php:
+    image: php:8.1-fpm
+    container_name: phpwinter 
+    volumes:
+      - C:\projetos\phpforwinter\app:/var/www/html
+    networks:
+      - default
+    environment:
+      - APP_ENV=dev
+      - PHP_MEMORY_LIMIT=1G
+      - PHP_MAX_EXECUTION_TIME=300
+      - PHP_UPLOAD_MAX_FILESIZE=100M
+      - PHP_POST_MAX_SIZE=100M
+      - PHP_EXTENSIONS=cURL,GD,Mbstring,OpenSSL,PDO,SimpleXML,ZipArchive
+
+  mysql:
+    image: mysql:8.0
+    container_name: mysqlwinter
+    volumes:
+      - C:\projetos\phpforwinter\data:/var/lib/mysql
+    networks:
+      - default
+    environment:
+      - MYSQL_DATABASE=winter
+      - MYSQL_USER=winter
+      - MYSQL_PASSWORD=123456
+      - MYSQL_ROOT_PASSWORD=123456
+
+  nginx:
+    image: nginx:1.21
+    container_name: nginxwinter
+    volumes:
+      - C:\projetos\phpforwinter\conf.d:/etc/nginx/conf.d
+      - C:\projetos\phpforwinter\app:/var/www/html
+    ports:
+      - 80:80
+    networks:
+      - default
+
+networks:
+  default:

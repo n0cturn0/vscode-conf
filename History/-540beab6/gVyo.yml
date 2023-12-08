@@ -1,0 +1,46 @@
+version: '3.5'
+
+# Networks
+networks:
+  winternetwork:
+    driver: bridge
+
+# Services
+services:
+
+  # PHP FPM Service
+  php:
+    container_name: php
+    build:
+      dockerfile: Dockerfile
+      context: .
+    volumes:
+      - 'C:\projetos\php-winter\winter:/var/www/html'
+      - './php-logging.conf:/usr/local/etc/php-fpm.d/zz-log.conf'
+    networks:
+      - winternetwork
+
+  # Nginx Service
+  nginx:
+    container_name: web
+    image: nginx:latest
+    ports:
+      - 8080:80
+    links:
+      - 'php'
+    volumes:
+      - 'C:\projetos\php-winter\winter:/var/www/html'
+      - './nginx-conf:/etc/nginx/conf.d'
+    networks:
+      - winternetwork
+
+  # meu-banco-de-dados:
+  #   image: mariadb
+  #   environment:
+  #     MYSQL_ROOT_PASSWORD: 123456
+  #   ports:
+  #     - "3306:3306"
+  #   volumes:
+  #     - C:\mariaDB\data:/var/lib/mysql
+  #   networks:
+  #     - winternetwork

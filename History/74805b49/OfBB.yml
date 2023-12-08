@@ -1,0 +1,25 @@
+version: "3.3"
+
+services:
+  server:
+    image: httpd:2.4-alpine
+    ports:
+      - 8088:80
+    volumes:
+      - ./httpd.conf:/usr/local/apache2/conf/httpd.conf
+      - ./httpd-vhosts.conf:/usr/local/apache2/conf/extra/httpd-vhosts.conf
+      - ../public:/usr/local/apache2/htdocs/
+    depends_on:
+      - php-fpm
+    links:
+      - php-fpm
+
+  php-fpm:
+    # NOTE: change it with the preferred PHP version
+    image: joseluisq/php-fpm
+    environment:
+      - "ENV_SUBSTITUTION_ENABLE=true"
+      - "PHP_MEMORY_LIMIT=512M"
+      - "PHP_SESSION_GC_MAXLIFETIME=7200"
+    volumes:
+      - ../public:/usr/local/apache2/htdocs/

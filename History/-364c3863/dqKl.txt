@@ -1,0 +1,13 @@
+Para não usar a função diretamento no html
+// <div id="area" onclick="clicar()" onmouseenter="entrar()" onmouseout="sair()">
+
+ var a = window.document.getElementById('area')
+        a.addEventListener('click', clicar)
+        a.addEventListener('mouseenter', entrar)
+        a.addEventListener('mouseout', sair)
+
+
+
+
+
+//VSCODE shift + alt + seta para baixo - Já copia a linha par baixo

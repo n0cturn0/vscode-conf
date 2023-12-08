@@ -1,0 +1,30 @@
+version: '3.8'
+services:
+  web:
+    image: php:8.0-apache
+    container_name: php-apache
+    ports:
+      - "80:80"
+    volumes:
+      - c:\projeto\novowinter:/var/www/html
+    working_dir: /var/www/html
+    command: ["apache2-foreground"]
+    networks:
+      - mynetwork
+
+  mysql:
+    image: mysql:8.0
+    container_name: mysql-db
+    ports:
+      - "3306:3306"
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_DATABASE: seu_database
+      MYSQL_USER: seu_usuario
+      MYSQL_PASSWORD: sua_senha
+    networks:
+      - mynetwork
+
+networks:
+  mynetwork:
+    driver: bridge

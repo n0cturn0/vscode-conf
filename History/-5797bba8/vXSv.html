@@ -1,0 +1,50 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        div#area {
+            background: rgb(42, 139, 42); 
+            color: white;
+            width: 200px;
+            height: 200px;
+            line-height: 200px;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    
+    <div id="area" onclick="clicar()" onmouseenter="entrar()" onmouseout="sair()">
+        Interativo
+    </div>
+
+    <h3>Somando Valores</h3>
+    <input type="number" name="txtn1" id="txtn1">+
+    <input type="number" name="txtn2" id="txtn2">
+    <input type="button" value="Somar" onclick="somar()"
+
+    <script>
+        var a = window.document.getElementById('area')
+        a.addEventListener('click', clicar)
+        a.addEventListener('mouseenter', entrar)
+        a.addEventListener('mouseout', sair)
+        function clicar(){
+        a.innerText = 'Clicou'
+        a.style.background = 'red'
+        }
+        function sair(){
+        a.innerText = 'Saiu'
+        a.style.background = 'green'
+        }
+
+        function entrar(){
+        a.innerText = 'Entrou'
+        }
+        
+    </script>
+</body>
+</html>

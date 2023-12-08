@@ -1,0 +1,477 @@
+@import url("https://fonts.googleapis.com/css?family=Lato:100,300,400,700,900");
+
+body {
+    font-family: 'Lato', sans-serif;
+    margin: 0;
+    padding: 0;
+    color: black
+}
+
+* {
+    font-family: inherit
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+    display: block
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    font-weight: 900
+}
+
+a {
+    color: inherit;
+    text-decoration: none
+}
+
+.linha-detalhe {
+    width: 80%;
+    height: 1px;
+    background-color: #000;
+    margin-left: -120px
+}
+
+@media (max-width: 991px) {
+    .linha-detalhe {
+        margin-left: 0;
+        width: 50%
+    }
+}
+
+@keyframes anima_janela {
+    from {
+        top: -300px;
+        opacity: 0
+    }
+
+    to {
+        top: 0;
+        opacity: 1
+    }
+}
+
+.modal {
+    display: none;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    z-index: 999;
+    top: 0;
+    left: 0;
+    background: rgba(0, 0, 0, 0.8)
+}
+
+.modal-janela {
+    overflow: auto;
+    width: 90%;
+    max-height: 80%;
+    position: relative;
+    z-index: 998;
+    padding: 15px;
+    border-radius: 5px;
+    margin-top: 30px;
+    animation: anima_janela 1s
+}
+
+.modal-janela-texto table {
+    width: 100% !important
+}
+
+.modal-close {
+    position: absolute;
+    z-index: 999;
+    top: 20px;
+    right: 20px
+}
+
+table {
+    border-collapse: collapse
+}
+
+table td {
+    border: 1px solid #ccc;
+    padding: 5px
+}
+
+.btn-facebook {
+    background-color: #4064AD;
+    border-color: #324e88;
+    color: white
+}
+
+.btn-twitter {
+    background-color: #1DA1F2;
+    border-color: #0c85d0;
+    color: white
+}
+
+.btn-linkedin {
+    background-color: #0271AE;
+    border-color: #01507c;
+    color: white
+}
+
+.materias-topo {
+    background-color: #dcf7fa
+}
+
+.materias-topo .logo {
+    max-width: 300px;
+    height: auto
+}
+
+.materias-rodape {
+    background-color: #000;
+    color: white
+}
+
+.bg-cor {
+    background-color: #000
+}
+
+.bg-cor2 {
+    background-color: #dcf7fa
+}
+
+.texto-branco {
+    color: #fff
+}
+
+.botao-cor {
+    display: inline-block;
+    background-color: #000;
+    color: #ffffff;
+    outline: none;
+    border-radius: 0;
+    padding: 15px 30px;
+    font-size: 0.8em;
+    text-decoration: none;
+    border: 1px solid #000;
+    cursor: pointer;
+    transition: background-color 200ms
+}
+
+.botao-cor:hover {
+    background-color: #000
+}
+
+.botao-linha-cor {
+    display: inline-block;
+    background-color: transparent;
+    border: 1px solid #000;
+    color: #000;
+    outline: none;
+    border-radius: 0;
+    padding: 15px 30px;
+    font-size: 0.8em;
+    text-decoration: none;
+    cursor: pointer;
+    transition: background-color 200ms, color 200ms
+}
+
+.botao-linha-cor:hover {
+    background-color: #000;
+    color: #ffffff
+}
+
+.botao-sm {
+    padding: 3px 5px
+}
+
+.botao-lg {
+    width: 100%
+}
+
+.logo img {
+    width: 100%;
+    max-width: 347px;
+    height: auto
+}
+
+.menu-responsivo {
+    width: 100%;
+    font-size: 1em
+}
+
+.menu {
+    list-style: none
+}
+
+.menu li {
+    padding: 15px
+}
+
+.menu li a {
+    display: block;
+    font-weight: 900;
+    color: #000;
+    text-decoration: none;
+    padding-bottom: 10px;
+    border-bottom: 2px solid transparent
+}
+
+.menu li a:hover {
+    border-bottom-color: #000
+}
+
+.banner {
+    position: relative;
+    border-bottom: 1px solid #ccc
+}
+
+.banner:before {
+    position: absolute;
+    top: 0;
+    left: 0;
+    content: "";
+    width: 50%;
+    height: 100%;
+    background-image: url(assets/imgs/fd-header.jpg);
+    background-position: center;
+    background-size: cover
+}
+
+@media (max-width: 991px) {
+    .banner:before {
+        width: 100%
+    }
+}
+
+.banner .bemvindo {
+    font-size: 20px
+}
+
+.servicos-home {
+    border-right: 1px solid #ccc
+}
+
+@media (max-width: 767px) {
+    .servicos-home {
+        border-right: none
+    }
+}
+
+.clip-path {
+    clip-path: polygon(79% 0, 100% 17%, 100% 100%, 0 100%, 0 0)
+}
+
+.parceria img {
+    width: 90%;
+    margin: 0 auto
+}
+
+@media (max-width: 991px) {
+    .parceria img {
+        width: 100%
+    }
+}
+
+.qd-solucoes {
+    position: relative
+}
+
+@media (max-width: 991px) {
+    .qd-solucoes {
+        color: #fff;
+        text-shadow: 1px 1px 1px #000
+    }
+}
+
+.qd-solucoes:before {
+    position: absolute;
+    top: 0;
+    left: 0;
+    content: "";
+    width: 50%;
+    height: 100%;
+    background-image: url(assets/imgs/fd-solucoes.jpg);
+    background-position: center;
+    background-size: cover
+}
+
+@media (max-width: 991px) {
+    .qd-solucoes:before {
+        width: 100%
+    }
+}
+
+.qd-solucoes .info-contato {
+    border: 1px solid #000;
+    font-weight: 700;
+    font-size: 12px;
+    text-transform: uppercase
+}
+
+@media (max-width: 991px) {
+    .qd-solucoes .info-contato {
+        text-shadow: none;
+        background-color: rgba(0, 0, 0, 0.5)
+    }
+}
+
+.links-home .descricao {
+    border-right: 1px solid #ccc
+}
+
+@media (max-width: 767px) {
+    .links-home .descricao {
+        border-right: none
+    }
+}
+
+@media (max-width: 767px) {
+    .links-home .links-blocos {
+        padding: 0;
+        margin-top: 50px
+    }
+}
+
+.links-home .links-utils {
+    overflow: hidden;
+    transition: background-color 200ms
+}
+
+@media (max-width: 767px) {
+    .links-home .links-utils {
+        padding: 0;
+        margin-bottom: 15px
+    }
+}
+
+.links-home .links-utils img {
+    margin-bottom: 15px
+}
+
+@media (max-width: 991px) {
+    .links-home .links-utils img {
+        float: left;
+        width: 120px;
+        height: auto;
+        margin-right: 10px
+    }
+}
+
+.links-home .links-utils:hover {
+    background-color: #d1ebee
+}
+
+.footer .social a {
+    display: inline-block;
+    background-color: #fff;
+    color: #000;
+    padding: 10px
+}
+
+.footer .social a:hover {
+    color: #fff
+}
+
+.footer .social a.facebook:hover {
+    background-color: #4863B2
+}
+
+.footer .social a.twitter:hover {
+    background-color: #34A6E0
+}
+
+.footer .social a.instagram:hover {
+    background-color: #8031AF
+}
+
+.footer .social a.linkedin:hover {
+    background-color: #1A71B3
+}
+
+.footer .lista-rodape {
+    list-style: none;
+    color: #ccc
+}
+
+.footer .lista-rodape li:not(:last-child) {
+    margin-bottom: 5px
+}
+
+.utilitarios a {
+    position: relative;
+    flex: 1;
+    display: block;
+    padding: 15px;
+    border: 1px solid #eee;
+    margin-top: 15px;
+    margin-bottom: 15px;
+    transition: background-color 200ms
+}
+
+.utilitarios a:hover {
+    background-color: #f5f5f5
+}
+
+.utilitarios a p {
+    position: relative
+}
+
+.utilitarios a .fas,
+.utilitarios a .far {
+    position: absolute;
+    top: 50%;
+    right: 5px;
+    transform: translate(0, -50%);
+    font-size: 60px;
+    color: #ddd
+}
+
+.form-padrao input,
+.form-padrao textarea {
+    padding: 15px;
+    border: 1px solid #ccc;
+    background-color: #fff;
+    width: 100%;
+    resize: vertical;
+    font-family: inherit;
+    outline: none
+}
+
+.form-padrao .carregando {
+    display: none;
+    width: 100%;
+    border-radius: 3px
+}
+
+.form-padrao .error {
+    color: #a94442;
+    background-color: #f2dede;
+    border: 2px solid #ebccd1
+}
+
+.form-padrao .success {
+    color: #3c763d;
+    background-color: #dff0d8;
+    border: 2px solid #d6e9c6
+}
+
+.paginacao {
+    text-align: center
+}
+
+.paginacao .atual {
+    color: #fff;
+    background-color: #000;
+    cursor: default
+}
+
+.pull-left {
+    float: left
+}
+
+.pull-right {
+    float: right
+}

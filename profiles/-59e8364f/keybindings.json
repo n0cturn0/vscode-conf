@@ -1,0 +1,21 @@
+// Coloque as suas associações de teclas neste arquivo para substituir os padrões
+[
+  {
+    "key": "ctrl+shift+alt+u",
+    "command": "workbench.action.output.toggleOutput",
+    "when": "workbench.panel.output.active"
+  },
+  {
+    "key": "ctrl+shift+u",
+    "command": "-workbench.action.output.toggleOutput",
+    "when": "workbench.panel.output.active"
+  },
+  {
+    "key": "ctrl+shift+alt+u",
+    "command": "sftp.upload.activeFile"
+  },
+  {
+    "key": "ctrl+shift+alt+d",
+    "command": "sftp.download.activeFile"
+  }
+]

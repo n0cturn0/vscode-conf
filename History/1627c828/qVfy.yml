@@ -1,0 +1,33 @@
+#docker-compose.yml
+version: '2.2'
+services:
+  mariadbwintercms:
+    image: mariadb
+    ports:
+      - 3306:3306
+    environment:
+      - MYSQL_ROOT_PASSWORD="Inovvati@2023"
+      - MYSQL_DATABASE=wintercms
+    networks:
+      - mynetwork
+    
+
+  web:
+    image: webmago/winter
+    ports:
+      - 80:80
+    environment:
+      - DB_TYPE=mariadb
+      - DB_HOST=mariadbwintercms #DB_HOST should match the service name of the database container
+      - DB_DATABASE=wintercms
+      - DB_USERNAME=root
+      - DB_PASSWORD="Inovvati@2023"
+    networks:
+      - mynetwork
+
+volumes:
+  mariadbwintercms:
+
+networks:
+  mynetwork:
+    external: true

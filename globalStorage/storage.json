@@ -1,0 +1,121 @@
+{
+    "userDataProfilesMigration": true,
+    "profileAssociations": {
+        "workspaces": {
+            "file:///c%3A/treinamento/js/aula04": "__default__profile__",
+            "file:///c%3A/treinamento/js": "__default__profile__",
+            "vscode-remote://dev-container%2B633a5c706870385c646f636b65722d706870/workspaces/docker-php": "__default__profile__",
+            "file:///c%3A/projetos/sulplan/site": "__default__profile__",
+            "file:///c%3A/projetos/winter/src/docker-wintercms": "__default__profile__",
+            "file:///c%3A/projetos/winter/teste/winter": "__default__profile__",
+            "file:///c%3A/projetos/winter/winter": "__default__profile__",
+            "file:///c%3A/projetos/modelo1/winter": "__default__profile__",
+            "file:///c%3A/projetos/modelos": "__default__profile__",
+            "file:///c%3A/projetos/winter": "__default__profile__",
+            "file:///c%3A/projetos/modelo1": "__default__profile__",
+            "file:///c%3A/projetos/test": "__default__profile__",
+            "file:///c%3A/projetos/new/winter": "__default__profile__",
+            "vscode-remote://dev-container%2B7b22766f6c756d654e616d65223a2266633565373462393466336266646139303866346163623835313533323537376465333137613366613630366433316666303630343339353533613932653535227d/volume": "__default__profile__",
+            "file:///c%3A/projetos/leleoco": "__default__profile__",
+            "file:///c%3A/projetos/teste": "__default__profile__",
+            "file:///c%3A/projetos/webmago": "__default__profile__",
+            "file:///c%3A/php8/docker-php": "__default__profile__",
+            "file:///c%3A/projetos/comando-docker-git": "__default__profile__",
+            "file:///c%3A/projetos/php-winter": "__default__profile__",
+            "file:///c%3A/MySql": "__default__profile__",
+            "file:///c%3A/projetos/alpine": "__default__profile__",
+            "file:///c%3A/projetos/new": "__default__profile__",
+            "vscode-remote://codespaces%2Bobscure-potato-65pvxx7x92xr9g/workspaces/3485511": "__default__profile__",
+            "file:///c%3A/Meus%20Sites/NOVO": "__default__profile__",
+            "file:///c%3A/Meus%20Sites/Joseneto/joseneto.dev": "__default__profile__",
+            "file:///c%3A/treinamento/alura/PHP/php": "__default__profile__",
+            "file:///c%3A/mariaDB/confg": "__default__profile__",
+            "file:///c%3A/treinamento/alura/PHP": "__default__profile__",
+            "file:///c%3A/treinamento/alura/php_/php-mvc-projeto-inicial-bdd": "__default__profile__",
+            "file:///c%3A/projetos/phpforwinter": "__default__profile__",
+            "file:///c%3A/Users/n0ctu/Desktop/Estrutura%20Modelos%20Contabeis": "__default__profile__",
+            "file:///c%3A/Windows": "__default__profile__",
+            "file://wsl.localhost/Ubuntu-22.04/home/guto/winter/example-app": "__default__profile__",
+            "vscode-remote://wsl%2Bubuntu-22.04/home/guto/winter/example-app": "__default__profile__",
+            "vscode-remote://wsl%2Bubuntu-22.04/home/guto/digitar-app": "__default__profile__",
+            "file:///c%3A/inovvati/src": "__default__profile__",
+            "vscode-remote://wsl%2Bubuntu-22.04/home/guto": "__default__profile__",
+            "vscode-remote://wsl%2Bubuntu-22.04/home/guto/classificado-alfa": "__default__profile__",
+            "vscode-remote://wsl%2Bubuntu-22.04/home/guto/horafazendeiro-test/horafazendeiro-test": "__default__profile__",
+            "vscode-remote://wsl%2Bubuntu-22.04/home/guto/horafazendeiro-test": "__default__profile__",
+            "vscode-remote://wsl%2Bubuntu-22.04/home/guto/horadofazendeiro-dev": "__default__profile__",
+            "file:///c%3A/inovvati/src/PSGITSM_servicedesk": "-59e8364f"
+        },
+        "emptyWindows": {}
+    },
+    "profileAssociationsMigration": true,
+    "telemetry.machineId": "a3c56d6cf258b3ab42b5d5d72631cda6f44384d1122ac298b809566f80e3533c",
+    "backupWorkspaces": {
+        "workspaces": [],
+        "folders": [
+            {
+                "folderUri": "file:///c%3A/treinamento/js"
+            },
+            {
+                "folderUri": "file:///c%3A/projetos/sulplan/site"
+            },
+            {
+                "folderUri": "file:///c%3A/treinamento/alura/php_/php-mvc-projeto-inicial-bdd"
+            },
+            {
+                "folderUri": "file:///c%3A/Users/n0ctu/Desktop/Estrutura%20Modelos%20Contabeis"
+            },
+            {
+                "folderUri": "file:///c%3A/inovvati/src/PSGITSM_servicedesk"
+            }
+        ],
+        "emptyWindows": []
+    },
+    "windowControlHeight": 35,
+    "theme": "vs-dark",
+    "themeBackground": "#1e1e1e",
+    "windowSplash": {
+        "zoomLevel": 0,
+        "baseTheme": "vs-dark",
+        "colorInfo": {
+            "foreground": "#cccccc",
+            "background": "#1e1e1e",
+            "editorBackground": "#1e1e1e",
+            "titleBarBackground": "#3c3c3c",
+            "activityBarBackground": "#333333",
+            "sideBarBackground": "#252526",
+            "statusBarBackground": "#007acc",
+            "statusBarNoFolderBackground": "#68217a"
+        },
+        "layoutInfo": {
+            "sideBarSide": "left",
+            "editorPartMinWidth": 220,
+            "titleBarHeight": 35,
+            "activityBarWidth": 48,
+            "sideBarWidth": 345,
+            "statusBarHeight": 22,
+            "windowBorder": false
+        }
+    },
+    "windowsState": {
+        "lastActiveWindow": {
+            "folder": "file:///c%3A/inovvati/src/PSGITSM_servicedesk",
+            "backupPath": "C:\\Users\\n0ctu\\AppData\\Roaming\\Code\\Backups\\9400af7c926e0c848d7996a13cf055f4",
+            "uiState": {
+                "mode": 1,
+                "x": 2,
+                "y": 2,
+                "width": 1364,
+                "height": 718
+            }
+        },
+        "openedWindows": []
+    },
+    "telemetry.sqmId": "{4E735A5D-ADC6-4C65-9CCF-964B79C0CB3D}",
+    "userDataProfiles": [
+        {
+            "location": "-59e8364f",
+            "name": "mober"
+        }
+    ]
+}

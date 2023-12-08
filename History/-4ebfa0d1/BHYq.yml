@@ -1,0 +1,9 @@
+# docker-compose.yml
+version: '2.2'
+services:
+  web:
+    image: hiltonbanes/wintercms:latest
+    ports:
+      - 8080:80
+    volumes:
+      - C:\projetos\leleoco:/var/www/html/plugins/winter/user

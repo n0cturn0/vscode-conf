@@ -1,0 +1,15 @@
+version: '3.5'
+services:
+    database:
+        image: mysql
+        ports:
+            - "3036:3306"  # Corrigi a ordem da porta no contêiner e no host
+        environment:
+            MYSQL_ROOT_PASSWORD: RootPassword
+            MYSQL_DATABASE: Backoffice
+            MYSQL_USER: MainUser
+            MYSQL_PASSWORD: MainPassword
+        volumes:
+            - db-volume:/var/lib/mysql
+volumes:
+    db-volume:

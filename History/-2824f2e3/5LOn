@@ -1,0 +1,17 @@
+# Use a imagem base do PHP
+FROM php:7.4-apache
+
+# Configuração do diretório de trabalho
+WORKDIR /var/www/html
+
+# Copie o código do aplicativo para o contêiner
+COPY . /var/www/html
+
+# Instale as dependências do PHP, se necessário
+# RUN composer install
+
+# Exponha a porta 80 para acesso externo
+EXPOSE 80
+
+# Comando para iniciar o servidor Apache
+CMD ["apache2-foreground"]

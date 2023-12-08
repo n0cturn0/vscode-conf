@@ -1,0 +1,17 @@
+# Use a imagem base do PHP 8.0 com Apache
+FROM php:8.0-apache
+
+# Configuração do diretório de trabalho
+WORKDIR /var/www/html
+
+# Copie o código do aplicativo para o contêiner
+COPY . /var/www/html
+
+# Instale as dependências do PHP, se necessário
+# RUN composer install
+
+# Exponha a porta 80 para acesso externo
+EXPOSE 80
+
+# Comando para iniciar o servidor Apache
+CMD ["apache2-foreground"]

@@ -1,0 +1,9 @@
+Tipo de dados JavaScript
+Data Type
+
+number - infinite NaN
+string
+boolean
+null
+undefined
+object

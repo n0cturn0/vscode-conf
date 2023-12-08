@@ -1,0 +1,3 @@
+Instalar o plgin
+ -  BDD Feature Editor
+ -  salvar o arquivo com a extensão .feature

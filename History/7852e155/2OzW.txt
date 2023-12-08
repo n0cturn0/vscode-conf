@@ -1,0 +1,6 @@
+Instalar o plgin
+ -  BDD Feature Editor
+ -  salvar o arquivo com a extensão .feature
+
+ Informações e detalhe da sintaxe de plugin
+ https://cucumber.io/docs/gherkin/

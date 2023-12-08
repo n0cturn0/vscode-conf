@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Formulário</title>
+    <style>
+      .hidden {
+        display: none;
+      }
+    </style>
+  </head>
+  <body>
+    <form>
+      <label>
+        <input
+          type="radio"
+          name="status"
+          id="radioNovo"
+          onclick="esconderOpcoes()"
+        />
+        Novo
+        <input
+          type="radio"
+          name="status"
+          id="radioAssinar"
+          onclick="mostrarOpcoes()"
+        />
+        Assinar
+      </label>
+
+      <div id="opcoesAssinatura" class="hidden">
+        <label>
+          Selecione o status:
+          <select id="selectStatus" onchange="mostrarTexto()">
+            <option value="assinar">Assinar</option>
+            <option value="assinado">Assinado</option>
+            <option value="impossivel">Impossível Assinar</option>
+          </select>
+        </label>
+
+        <div id="campoTexto" class="hidden">
+          <label>
+            Digite o motivo:
+            <textarea id="motivo" rows="4" cols="50"></textarea>
+          </label>
+        </div>
+      </div>
+    </form>
+
+    <script>
+      function mostrarOpcoes() {
+        var opcoesAssinatura = document.getElementById("opcoesAssinatura");
+        opcoesAssinatura.classList.remove("hidden");
+        document.getElementById("campoTexto").classList.add("hidden");
+      }
+
+      function esconderOpcoes() {
+        var opcoesAssinatura = document.getElementById("opcoesAssinatura");
+        opcoesAssinatura.classList.add("hidden");
+      }
+
+      function mostrarTexto() {
+        var campoTexto = document.getElementById("campoTexto");
+        campoTexto.classList.toggle(
+          "hidden",
+          document.getElementById("selectStatus").value !== "impossivel"
+        );
+      }
+    </script>
+  </body>
+</html>

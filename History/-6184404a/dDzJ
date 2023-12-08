@@ -1,0 +1,25 @@
+# Use the official httpd image as the base image
+FROM httpd:2.4-alpine
+
+# Copy your Apache configuration files
+COPY ./httpd.conf /usr/local/apache2/conf/httpd.conf
+COPY ./httpd-vhosts.conf /usr/local/apache2/conf/extra/httpd-vhosts.conf
+
+# Copy your PHP files to the htdocs directory
+COPY C:\projetos\alpine\winter /tmp
+
+# Dependencies on php-fpm
+# (Note: links are deprecated, you can use service names as hostnames)
+RUN apk --no-cache add curl \
+    && while true; do curl -s php-fpm:9000 && break || sleep 5; done
+
+# Expose port 80
+EXPOSE 80
+
+# Start Apache in the foreground
+CMD ["httpd", "-D", "FOREGROUND"]
+
+RUN php -r "copy('https://getcomposer.org/installer', 'composer-setup.php');" \
+&& php -r "if (hash_file('SHA384', 'composer-setup.php') === '93b54496392c062774670ac18b134c3b3a95e5a5e5c8f1a9f115f203b75bf9a129d5daa8ba6a13e2cc8a1da0806388a8') { echo 'Installer verified'; } else { echo 'Installer corrupt'; unlink('composer-setup.php'); } echo PHP_EOL;" \
+&& php composer-setup.php --install-dir=/usr/local/bin --filename=composer \
+&& composer install

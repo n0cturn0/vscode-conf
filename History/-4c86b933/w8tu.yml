@@ -1,0 +1,27 @@
+#docker-compose.yml
+version: '2.2'
+services:
+  web:
+    image: webmago/winter:latest
+    ports:
+      - 80:80
+    environment:
+      - DB_TYPE=mysql
+      - DB_HOST=mysql #DB_HOST should match the service name of the database container
+      - DB_DATABASE=wintercms
+      - DB_USERNAME=root
+      - DB_PASSWORD=root
+    volumes:
+      - ./.env:/var/www/html/.env
+      - ./plugins:/var/www/html/plugins
+      - ./storage/app:/var/www/html/storage/app
+      - ./storage/logs:/var/www/html/storage/logs
+      - ./themes:/var/www/html/themes
+
+  mysql:
+    image: mysql:5.7
+    ports:
+      - 3306:3306
+    environment:
+      - MYSQL_ROOT_PASSWORD=root
+      - MYSQL_DATABASE=wintercms

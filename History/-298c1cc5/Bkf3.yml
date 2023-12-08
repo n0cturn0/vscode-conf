@@ -1,0 +1,16 @@
+version: '3'
+services:
+  meu-banco-de-dados:
+    image: mariadb
+    environment:
+      MYSQL_ROOT_PASSWORD: 123456
+    ports:
+      - "3306:3306"
+    volumes:
+      - C:\mariaDB\data:/var/lib/mysql
+    networks:
+      - winternetwork
+
+networks:
+  mynetwork:
+    external: true

@@ -1,0 +1,80 @@
+{
+  "extensions.ignoreRecommendations": true,
+  "editor.fontFamily": "'JetBrainsMono Nerd Font', 'Ubuntu Mono', Consolas, 'Courier New', monospace",
+  "editor.fontSize": 13,
+  "editor.fontLigatures": true,
+  "[javascript]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[typescript]": { "editor.defaultFormatter": "esbenp.prettier-vscode" },
+  "[typescriptreact]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "editor.defaultFormatter": "esbenp.prettier-vscode",
+  "editor.formatOnSave": true,
+  "editor.tabSize": 2,
+  "files.eol": "\n",
+  "emmet.triggerExpansionOnTab": true,
+  "emmet.showSuggestionsAsSnippets": true,
+  "editor.snippetSuggestions": "top",
+  "emmet.includeLanguages": {
+    "javascript": "javascriptreact",
+    "razor": "html",
+    "blade": "html",
+    "plaintext": "pug"
+  },
+  "workbench.startupEditor": "newUntitledFile",
+  "javascript.updateImportsOnFileMove.enabled": "always",
+  "[php]": {
+    "editor.wordSeparators": "`~!@#%^&*()-=+[{]}\\|;:'\",.<>/?",
+    "editor.formatOnSave": true,
+    "editor.defaultFormatter": "bmewburn.vscode-intelephense-client",
+    "editor.formatOnPaste": true
+  },
+  "[blade]": {
+    "editor.wordSeparators": "`~!@#%^&*()-=+[{]}\\|;:'\",.<>/?",
+    "editor.formatOnSave": true,
+    "editor.defaultFormatter": "shufo.vscode-blade-formatter",
+    "editor.formatOnPaste": true
+  },
+  "terminal.integrated.gpuAcceleration": "off",
+  "terminal.integrated.fontSize": 12,
+  "terminal.integrated.fontFamily": "monospace",
+  "git.confirmSync": false,
+  "php-cs-fixer.executablePath": "${extensionPath}/php-cs-fixer.phar",
+  "thunder-client.codeSnippetLanguage": "cs-httpclient",
+  "blade.format.enable": true,
+  "bladeFormatter.format.indentSize": 2,
+  "bracketPairColorizer.forceUniqueOpeningColor": true,
+  "bracketPairColorizer.activeScopeCSS": [
+    "borderStyle : solid",
+    "borderWidth : 1px",
+    "borderColor : {color}; opacity: 0.5"
+  ],
+  "html.format.indentHandlebars": true,
+  "bracketPairColorizer.showBracketsInRuler": true,
+  "bracketPairColorizer.forceIterationColorCycle": true,
+  "php-cs-fixer.lastDownload": 1632330170708,
+  "bladeFormatter.format.wrapAttributes": "force-aligned",
+  "bracketPairColorizer.highlightActiveScope": true,
+  "bracketPairColorizer.depreciation-notice": false,
+  "tabnine.experimentalAutoImports": true,
+  "kite.showWelcomeNotificationOnStartup": false,
+  "bracket-pair-colorizer-2.depreciation-notice": false,
+  "workbench.iconTheme": "vscode-great-icons",
+  "workbench.colorTheme": "Default Dark+",
+  "security.workspace.trust.untrustedFiles": "open",
+  "vsicons.dontShowNewVersionMessage": true,
+  "liveServer.settings.donotShowInfoMsg": true,
+  "intelephense.diagnostics.undefinedTypes": false,
+  "terminal.integrated.env.windows": {},
+  "diffEditor.ignoreTrimWhitespace": false,
+  "diffEditor.renderSideBySide": false,
+  "github.copilot.enable": {
+    "*": true,
+    "plaintext": false,
+    "markdown": false,
+    "scminput": false
+  },
+  "window.zoomLevel": 1
+}

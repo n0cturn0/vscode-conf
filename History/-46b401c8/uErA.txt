@@ -1,0 +1,12 @@
+Tipo de dados JavaScript
+Data Type
+
+number - infinite NaN
+string
+boolean
+null
+undefined
+object
+
+Comando
+typeof e o nome da variável retorna o tipo.

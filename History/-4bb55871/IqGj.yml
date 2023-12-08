@@ -1,0 +1,230 @@
+version: "3.9"
+
+services:
+  app-itsm-agetec:
+    image: harbor.psgtecnologiaaplicada.com.br/psgitsm/prod:${VERSION_IMG}
+    restart: always
+    networks:
+      - default
+      - newrelic
+    container_name: ${CONTAINER_NAME_AGETEC}
+    shm_size: "20gb"
+    deploy:
+      resources:
+        limits:
+          cpus: 7.5
+          memory: 4096M
+    ports:
+      - 81:80
+    volumes:
+      # - "${CONF_FOLDER_AGETEC}:/var/www/html/psgitsm/config:rw"
+      - "${FILES_FOLDER_AGETEC}:/var/www/html/psgitsm/files:rw"
+      - "${AOP_FOLDER_AGETEC}:/var/www/html/psgitsm/files/AOP:rw"
+      - "${SESSIONS_FOLDER_AGETEC}:/var/www/html/psgitsm/files/_sessions:rw"
+    environment:
+      NEW_RELIC_LICENSE_KEY: ${NEW_RELIC_LICENSE_KEY}
+      NEW_RELIC_APPNAME: ${NEW_RELIC_APPNAME_AGETEC}
+      TZ: ${TZ}
+      AMBIENTE: ${AMBIENTE}
+      GLPI_DB_HOST: ${DB_HOST_AGETEC}
+      GLPI_DB_USER: ${DB_USER_AGETEC}
+      GLPI_DB_PASSWORD: ${DB_PASS_AGETEC}
+      GLPI_DB_DATABASE: ${DB_NAME_AGETEC}
+      COMPONENT_ALERT_EMAIL: ${COMPONENT_ALERT_EMAIL}
+      TERMO_ENTREGA: ${URI_TERMO_ENTREGA_AGETEC}
+      TERMOS: ${URI_TERMOS_AGETEC}
+      DB_HOST: ${DB_HOST_AGETEC}
+      DB_PORT: ${DB_PORT}
+      DB_USER: ${DB_USER_AGETEC}
+      DB_PASS: ${DB_PASS_AGETEC}
+      DB_NAME: ${DB_NAME_AGETEC}
+      URL_JASPER: ${URI_JASPER}
+      CAMINHO_AMBIENTE_JASPER: ${CAMINHO_AMBIENTE_JASPER_AGETEC}
+      URL_AOP: ${URL_AOP}
+      USER_AOP: ${USER_AOP}
+      PASS_AOP: ${PASS_AOP}
+      CATALOGO_INFRA_PUBLICACAO: ${CATALOGO_INFRA_PUBLICACAO}
+      PERFIL_DGSIS_DIRETORIA: ${PERFIL_DGSIS_DIRETORIA}
+      PERFIL_DGSIS_ANALISTA: ${PERFIL_DGSIS_ANALISTA}
+      PERFIL_DGSIS_NEGOCIO: ${PERFIL_DGSIS_NEGOCIO}
+      PERFIL_SUPORTE_SISTEMAS_N2: ${PERFIL_SUPORTE_SISTEMAS_N2}
+      PERFIL_SUPER_ADMIN: ${PERFIL_SUPER_ADMIN}
+    healthcheck:
+      disable: true
+
+  app-itsm-sesau:
+    image: harbor.psgtecnologiaaplicada.com.br/psgitsm/prod:${VERSION_IMG}
+    restart: always
+    networks:
+      - default
+      - newrelic
+    container_name: ${CONTAINER_NAME_SESAU}
+    shm_size: "20gb"
+    deploy:
+      resources:
+        limits:
+          cpus: "${CONTAINER_CPU}"
+          memory: ${CONTAINER_MEMORY}
+    ports:
+      - 88:80
+    volumes:
+      # - "${CONF_FOLDER_SESAU}:/var/www/html/psgitsm/config:rw"
+      - "${FILES_FOLDER_SESAU}:/var/www/html/psgitsm/files:rw"
+      - "${SESSIONS_FOLDER_SESAU}:/var/www/html/psgitsm/files/_sessions:rw"
+    environment:
+      NEW_RELIC_LICENSE_KEY: ${NEW_RELIC_LICENSE_KEY}
+      NEW_RELIC_APPNAME: ${NEW_RELIC_APPNAME_SESAU}
+      TZ: ${TZ}
+      AMBIENTE: ${AMBIENTE}
+      GLPI_DB_HOST: ${DB_HOST_SESAU}
+      GLPI_DB_USER: ${DB_USER_SESAU}
+      GLPI_DB_PASSWORD: ${DB_PASS_SESAU}
+      GLPI_DB_DATABASE: ${DB_NAME_SESAU}
+      COMPONENT_ALERT_EMAIL: ${COMPONENT_ALERT_EMAIL}
+      TERMO_ENTREGA: ${URI_TERMO_ENTREGA_SESAU}
+      TERMOS: ${URI_TERMOS_SESAU}
+      DB_HOST: ${DB_HOST_SESAU}
+      DB_PORT: ${DB_PORT}
+      DB_USER: ${DB_USER_SESAU}
+      DB_PASS: ${DB_PASS_SESAU}
+      DB_NAME: ${DB_NAME_SESAU}
+      URL_JASPER: ${URI_JASPER}
+      CAMINHO_AMBIENTE_JASPER: ${CAMINHO_AMBIENTE_JASPER_SESAU}
+      URL_AOP: ${URL_AOP}
+      USER_AOP: ${USER_AOP}
+      PASS_AOP: ${PASS_AOP}
+      CATALOGO_INFRA_PUBLICACAO: ${CATALOGO_INFRA_PUBLICACAO}
+      PERFIL_DGSIS_DIRETORIA: ${PERFIL_DGSIS_DIRETORIA}
+      PERFIL_DGSIS_ANALISTA: ${PERFIL_DGSIS_ANALISTA}
+      PERFIL_DGSIS_NEGOCIO: ${PERFIL_DGSIS_NEGOCIO}
+      PERFIL_SUPORTE_SISTEMAS_N2: ${PERFIL_SUPORTE_SISTEMAS_N2}
+      PERFIL_SUPER_ADMIN: ${PERFIL_SUPER_ADMIN}
+    healthcheck:
+      disable: true
+
+  app-itsm-semed:
+    image: harbor.psgtecnologiaaplicada.com.br/psgitsm/prod:${VERSION_IMG}
+    restart: always
+    networks:
+      - default
+      - newrelic
+    container_name: ${CONTAINER_NAME_SEMED}
+    shm_size: "20gb"
+    deploy:
+      resources:
+        limits:
+          cpus: "${CONTAINER_CPU}"
+          memory: ${CONTAINER_MEMORY}
+    ports:
+      - 89:80
+    volumes:
+      # - "${CONF_FOLDER_SEMED}:/var/www/html/psgitsm/config:rw"
+      - "${FILES_FOLDER_SEMED}:/var/www/html/psgitsm/files:rw"
+      - "${SESSIONS_FOLDER_SEMED}:/var/www/html/psgitsm/files/_sessions:rw"
+    environment:
+      NEW_RELIC_LICENSE_KEY: ${NEW_RELIC_LICENSE_KEY}
+      NEW_RELIC_APPNAME: ${NEW_RELIC_APPNAME_SEMED}
+      TZ: ${TZ}
+      AMBIENTE: ${AMBIENTE}
+      GLPI_DB_HOST: ${DB_HOST_SEMED}
+      GLPI_DB_USER: ${DB_USER_SEMED}
+      GLPI_DB_PASSWORD: ${DB_PASS_SEMED}
+      GLPI_DB_DATABASE: ${DB_NAME_SEMED}
+      COMPONENT_ALERT_EMAIL: ${COMPONENT_ALERT_EMAIL}
+      TERMO_ENTREGA: ${URI_TERMO_ENTREGA_SEMED}
+      TERMOS: ${URI_TERMOS_SEMED}
+      DB_HOST: ${DB_HOST_SEMED}
+      DB_PORT: ${DB_PORT}
+      DB_USER: ${DB_USER_SEMED}
+      DB_PASS: ${DB_PASS_SEMED}
+      DB_NAME: ${DB_NAME_SEMED}
+      URL_JASPER: ${URI_JASPER}
+      CAMINHO_AMBIENTE_JASPER: ${CAMINHO_AMBIENTE_JASPER_SEMED}
+      URL_AOP: ${URL_AOP}
+      USER_AOP: ${USER_AOP}
+      PASS_AOP: ${PASS_AOP}
+      CATALOGO_INFRA_PUBLICACAO: ${CATALOGO_INFRA_PUBLICACAO}
+      PERFIL_DGSIS_DIRETORIA: ${PERFIL_DGSIS_DIRETORIA}
+      PERFIL_DGSIS_ANALISTA: ${PERFIL_DGSIS_ANALISTA}
+      PERFIL_DGSIS_NEGOCIO: ${PERFIL_DGSIS_NEGOCIO}
+      PERFIL_SUPORTE_SISTEMAS_N2: ${PERFIL_SUPORTE_SISTEMAS_N2}
+      PERFIL_SUPER_ADMIN: ${PERFIL_SUPER_ADMIN}
+    healthcheck:
+      disable: true
+
+  app-itsm-impcg:
+    image: harbor.psgtecnologiaaplicada.com.br/psgitsm/prod:${VERSION_IMG}
+    restart: always
+    networks:
+      - default
+      - newrelic
+    container_name: ${CONTAINER_NAME_IMPCG}
+    shm_size: "20gb"
+    deploy:
+      resources:
+        limits:
+          cpus: "${CONTAINER_CPU}"
+          memory: ${CONTAINER_MEMORY}
+    ports:
+      - 8082:80
+    volumes:
+      # - "${CONF_FOLDER_IMPCG}:/var/www/html/psgitsm/config:rw"
+      - "${FILES_FOLDER_IMPCG}:/var/www/html/psgitsm/files:rw"
+      - "${SESSIONS_FOLDER_IMPCG}:/var/www/html/psgitsm/files/_sessions:rw"
+    environment:
+      NEW_RELIC_LICENSE_KEY: ${NEW_RELIC_LICENSE_KEY}
+      NEW_RELIC_APPNAME: ${NEW_RELIC_APPNAME_IMPCG}
+      TZ: ${TZ}
+      AMBIENTE: ${AMBIENTE}
+      GLPI_DB_HOST: ${DB_HOST_IMPCG}
+      GLPI_DB_USER: ${DB_USER_IMPCG}
+      GLPI_DB_PASSWORD: ${DB_PASS_IMPCG}
+      GLPI_DB_DATABASE: ${DB_NAME_IMPCG}
+      COMPONENT_ALERT_EMAIL: ${COMPONENT_ALERT_EMAIL}
+      TERMO_ENTREGA: ${URI_TERMO_ENTREGA_IMPCG}
+      TERMOS: ${URI_TERMOS_IMPCG}
+      DB_HOST: ${DB_HOST_IMPCG}
+      DB_PORT: ${DB_PORT}
+      DB_USER: ${DB_USER_IMPCG}
+      DB_PASS: ${DB_PASS_IMPCG}
+      DB_NAME: ${DB_NAME_IMPCG}
+      URL_JASPER: ${URI_JASPER}
+      CAMINHO_AMBIENTE_JASPER: ${CAMINHO_AMBIENTE_JASPER_IMPCG}
+      URL_AOP: ${URL_AOP}
+      USER_AOP: ${USER_AOP}
+      PASS_AOP: ${PASS_AOP}
+      CATALOGO_INFRA_PUBLICACAO: ${CATALOGO_INFRA_PUBLICACAO}
+      PERFIL_DGSIS_DIRETORIA: ${PERFIL_DGSIS_DIRETORIA}
+      PERFIL_DGSIS_ANALISTA: ${PERFIL_DGSIS_ANALISTA}
+      PERFIL_DGSIS_NEGOCIO: ${PERFIL_DGSIS_NEGOCIO}
+      PERFIL_SUPORTE_SISTEMAS_N2: ${PERFIL_SUPORTE_SISTEMAS_N2}
+      PERFIL_SUPER_ADMIN: ${PERFIL_SUPER_ADMIN}
+    healthcheck:
+      disable: true
+
+  proxy-pmcg:
+    image: harbor.psgtecnologiaaplicada.com.br/psgitsm/prod-proxy:${VERSION_IMG}
+    restart: always
+    networks:
+      - default
+    container_name: proxy_pmcg
+    deploy:
+      resources:
+        limits:
+          cpus: 1
+          memory: 1024M
+    ports:
+      - 80:80
+    environment:
+      TZ: America/Cuiaba
+
+networks:
+  default:
+    external:
+      name: psgitsm
+  newrelic:
+    external:
+      name: newrelic-php
+  redecms:
+    external:
+      name: redecms

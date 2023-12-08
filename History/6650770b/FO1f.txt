@@ -1,0 +1,13 @@
+Verifica  se uma rede existe:
+docker network list
+
+Se a rede mynetwork não existir, você pode criá-la executando o seguinte comando:
+docker network create mynetwork
+
+Verifique se o arquivo docker-compose.yml está incorreto. Você pode fazer isso executando o seguinte comando:
+docker-compose config -q
+
+Criando uma rede no docker:
+docker network create mynetwork
+
+TEste

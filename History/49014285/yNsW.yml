@@ -1,0 +1,9 @@
+# docker-compose.yml
+version: '2.2'
+services:
+  web:
+    image: webmago/winter:latest
+    ports:
+      - 8080:80
+    volumes:
+      - c:\projetos\teste:/var/www/html

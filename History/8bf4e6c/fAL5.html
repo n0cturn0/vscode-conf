@@ -1,0 +1,383 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Laravel</title>
+</head>
+<body>
+    <h2>Instalação do laravel com Docker Sail</h2>
+    curl -s "http://laravel.build/classificado-alfa?with=mysql" | bash
+    <h2><n>Laravel Mix</n> Compilação dos arquivo de frontEnd</h2>
+    <p>No arquivo webpack.mix.js define-se os arquivo de entrada com seu path completo, o path para o arquivo de saida </p>
+    <p>Comando para compilar: npm run dev</p>
+
+    <h2>Modelo Simples de rota</h2>
+    Route::get('/', [App\Http\Controllers\PrincipalController::class, 'novo'])->name('principal');
+
+    <h2>Laravel </h2>
+    <h3>Instalação do laravel com composer</h3>
+    <p>composer create-project laravel/laravel example-app</p>
+    
+    <p>Criando model com migration</p>
+    <p>php artisan make:model Carros -m</p>
+
+    <h2>Criando um projeto com versão específica do Laravel</h2>
+    <p>composer create-project --prefer-dist laravel/laravel=8.5.9 app_locadora_carros</p>
+
+    <h2>Criando Model Migration controle e rources</h2>
+    <p>Opcção 1</p>
+    <p>php artisan make:model --migration --controller --resource <b>Marca</b> </p>
+    <p>**** --resource são os médotos show index() destroy() histori() ...</p>
+    <p>Opcção 2</p>
+    <p>php artisan make:model -mcr Model</p>
+    <p>**** -mcr siginifica migration controele e resource </p>
+    <p>Opcção 3</p>
+    <p>Além de criar o modelos, podemos criar com os seeders e factory</p>
+    <p>php artisan make:model --all Carro</p>
+    <p>**** FACTORY é uma classe que pode ser implementada para preenchimento em massa de uma tabela</p>
+    <p>**** SEEDER Classe responsável para popular a tabela</p>
+    <p>Opcção 4</p>
+    <p>php artisan make:model -a Cliente</p>
+    <p>Opção abreviada, da opção anterior.</p>
+    <h2>Execução das migrations</h2>
+    <p>php artisan migrate</p>
+    <hr>
+    <h2>Contet-Type</h2>
+    <p>O content-type, é um atributo do cabeçalho de resposta do protocolo HTTP</p>
+    <h2>Rotas e Diferença entre Route::resource e Route:apiResource</h2>
+    <p><b>Route::resource</b></p>
+    <p>Possui os métodos create e edit</p>
+    <ul>
+        <li>index</li>
+        <li>store</li>
+        <li><b>create</b></li>
+        <li>show</li>
+        <li>update</li>
+        <li>destroy</li>
+        <li><b>edit</b></li>
+    </ul>
+    <p><b>Route::apiResource</b></p>
+    <p>Possui os métodos create e edit</p>
+    <ul>
+        <li>index</li>
+        <li>store</li>
+        <li>show</li>
+        <li>update</li>
+        <li>destroy</li>
+        
+    </ul>
+
+    <h2>Executar Migrate específica</h2>
+    <p>php artisan migrate --path=/database/migrations/2019_12_04_131405_create_payments_table.php
+    </p>
+
+    <h2>BUG LARAVEL 8</h2>
+    <p>Passar o caminho completo do controller para o framework indentificar o resource/functions</p>
+    <p>Route::apiResource('cliente','App\Http\Controllers\ClienteController');</p>
+   
+
+    <h2>ROTAS</h2>
+    <p>Listar rotas</p>
+    <p>php artisan route:list</p>
+
+    <h2>Criando Método POST </h2>
+    <p>Implementa os campos a ser utilizados no arquivo de model. Ex.:</p>
+    <pre>
+        class Marca extends Model
+        {
+            use HasFactory;
+            protected $fillable = ['nome', 'imagem'];
+        }
+    </pre>
+    <p>No controller, no método conveniente</p>
+    <pre>
+        public function store(Request $request)
+    {
+        //Recupera o Model marca e passa o método create
+        $marca = Marca::create($request->all());
+        // dd($marca);
+        return $marca;
+
+
+    }
+    </pre>
+
+    <h2>Criando Método GET (index e show) </h2>
+    <p>Implementa os campos a ser utilizados no arquivo de model. Ex.:</p>
+    <pre>
+        public function index()
+        {
+            $marca = Marca::all();
+            return $marca;
+        }
+    </pre>
+    <p>E o método show, retorna um valor em específico</p>
+    <pre>
+        public function show(Marca $marca)
+        {
+            return $marca;
+        }
+    </pre>
+
+
+    <h2>Criando Método PUT PATH(update </h2>
+    <p>Apenas um Diferença semântica entre eles</p>
+    
+    <pre>
+        public function update(Request $request, Marca $marca)
+        {
+            print_r($request->all()); //Dados atualizados
+            echo '<hr>';
+            print_r($marca->getAttributes()); //Dados Antigos
+            $marca->update($request->all());
+            rerun $marca;
+            
+        }
+    </pre>
+    <h2>Criando Método DELETE</h2>
+    <p>Exclusão de dados atravéz dos metodo delete()</p>
+    <pre>
+        public function destroy(Marca $marca)
+        {
+            $marca->delete();
+            return ['msg' => 'A marca foi removida com sucesso'];
+        }
+    </pre>
+
+    <h2>Entendo o conceito de URL URN e URI</h2>
+    
+    <p>EXemplos</p>
+    <p><b>Uniform Resource Locator:URL -> Onde está o recurso?</b></p>
+    <p>google.com.br</p>
+    <p>php.net</p>
+    <br>
+    <p><b>Uniform Resource Name:URN -> Recurso dentro do host</b></p>
+    <p>/api/vagas</p>
+    <p>/cadastro/novos-clientes</p>
+    <p>contato.php</p>
+    <br>
+    <p><b>Uniform Resource Identifier:URI -> Combinação dos protocolos + URL + URN</b></p>
+    <p>https://vagas.com.br/api/buscar</p>
+    <p>https://udemy.com/course/ataques-forge</p>
+    <p>https://site.com.br/pagina_xyz</p>
+    <br>
+    <br>
+    <hr>
+
+    <h2><n>*********</n>Injetando a instância do Model no controller e como lidar com o Type Hinting</h2>
+    <p>Modo estático</p>
+    <pre>
+        /**
+        * Display a listing of the resource.
+        *
+        * @return \Illuminate\Http\Response
+        */
+       public function index()
+       {
+           $marca = Marca::all();
+           return $marca;
+       }
+    </pre>
+       <p>A sintaxe acima esta executando o método all, da classe marca de modo estático, ou seja não está instanciando
+            o objeto, esta apenas executando um método interno no Framework</p>
+ 
+<h2>Injetando o do model como sendo um objeto no construtor do controller</h2>
+<pre>
+    class MarcaController extends Controller
+{
+
+    public function __construct(Marca $marca)
+    {
+        //Atributo recebe obejto do tipo $marca
+        $this->marca = $marca;
+    }
+
+}
+</pre>
+
+<p>Usando a injeção do model como objeto na classe controle</p>
+<pre>
+    /**
+    * Display a listing of the resource.
+    *
+    * @return \Illuminate\Http\Response
+    */
+   public function index()
+   {
+       // $marca = Marca::all();
+       $marcas = $this->marca->all();
+       return $marcas;
+   }
+</pre>
+
+<h2>Validções - controle de fluxo</h2>
+
+    <pre>
+        public function destroy($id)
+    {
+        // $marca->delete();
+        $marca = $this->marca->find($id);
+        if($marca === null) {
+            return 'Impossivel excluir esse recurso';
+        }
+        $marca->delete();
+        return ['msg' => 'A marca foi removida com sucesso'];
+    }
+    </pre>
+    <p>Stateless:quando se trabalha com api/restfull por padrão o stateless é implementado.o conceito de stateless, ou protocolo de comunicação stateless, propões que cada requisição seja única, ou seja deixa de armazenar informação
+        do lado do BACKEND da applicação.Por ele aplica o redirec para a rota anterior da que esta sendo executada. </p>
+    
+
+<h2>Implementando as regras de validações no model</h2>
+<pre>
+    class Marca extends Model
+{
+    use HasFactory;
+    protected $fillable = ['nome', 'imagem'];
+
+
+    public function rules(){
+        return [
+            'nome' => 'required|unique:marcas|min:3',
+            'imagem' => 'required'
+        ];
+    }
+    /*
+    Explicação da Validação unique, que possuí 3 paramêtros, sendo eles::all();
+    1) Após a sintaxe unique: é seguido de o nome da tabela
+    2) Após o nome da tabela (marcas), é seguido o nome da coluna, que por padrão é o nome do input (nome), que também quando omitido é considerado por default
+    3) id o registro que será desconsiderado na pesquisa
+    */
+    public function feedback()
+    {
+        return [
+            'required' => 'O campo :attribute é obrigatório',
+            'nome.unique' => 'O nome da marca já existe',
+            'nome.min' => 'O nome deve ter no mínimo 3 caractéres'
+        ];
+    }
+
+
+ }
+</pre>
+<hr>
+<h2>Exemplos de como recuperar os métodos implementados no Model, no controllador</h2>
+<pre>
+    public function store(Request $request)
+    {
+        $request->validate($this->marca->rules(), $this->marca->feedback());
+        $marca = $this->marca->create($request->all());
+        return response()->json($marca, 201);
+    }
+</pre>
+<hr>
+<h2>Implementando o Upload de imagem</h2>
+<pre>
+    public function store(Request $request)
+{
+    $request->validate($this->marca->rules(), $this->marca->feedback());
+    //Maneira de acessar os atibutos dos inputs nome:text e imagem:file
+    dd($request->nome);
+    dd($request->get('nome'));
+
+    dd($request->imagem;
+    dd($request->file('imagem'));
+
+    $marca = $this->marca->create($request->all());
+    return response()->json($marca, 201);
+
+
+
+
+}
+</pre>
+<h2>Implementando o Upload de imagem - 2 Persistindo arquivo em alum local</h2>
+<pre>
+    public function store(Request $request)
+    {
+        $request->validate($this->marca->rules(), $this->marca->feedback());
+        //Maneira de acessar os atibutos dos inputs nome:text e imagem:file
+        dd($request->nome);
+       // dd($request->get('nome'));
+    
+       //Metodo store espera dois parametro sendo o primeiro o 'path', ou seja o caminho em que o arquivo sera armazendo
+       //e o sengundo parametro é o disco
+       //  $imagem->store('path','disco');
+       //Configuracao do disco esta no arquivo config/fylesystens.php
+       //Existindo 3 opções 1-local por padrão, podendo ser omitido o parametro 'disco', ou seja passando apenas o nome da pasta onde
+       //deseja salvar o arquivo, ficaria desta maneira $imagem->store('nomedapasta',);
+       $imagem = $request->imagem;
+       $imagem->store('imagens');
+       dd('upload de arquivos');
+        
+        $marca = $this->marca->create($request->all());
+        return response()->json($marca, 201);
+
+    
+    
+    
+    }
+</pre>
+<h2>Criando Link simbolico entre o diretorio da apicação e o publico/storage</h2>
+<p>php artisan storage:link</p>
+
+<h2>Upload de arquivo atualizando as imagens</h2>
+<p>Para realiza a atualização do arquivo na storage e também no banco de dados, deve se manter o
+    verbo POST e acrecentar o parametro _method (PUT) no formulário, para disparar para sua respectiva rota
+</p>
+<pre>
+    public function update(Request $request, $id)
+    {
+
+
+
+        $imagem = $request->file('imagem');
+    $imagem_urn = $imagem->store('imagem', 'public');
+    $marca->update([
+            'nome' => $request->nome,
+            'imagem'   => $imagem_urn
+       ]);
+        return response()->json($marca,200);
+    }
+    return response()->json($marca,200);
+
+
+    }
+    
+</pre>
+<h2>Removendo arquivos upload</h2>
+<hr>
+<h2>Tradução das mensagens de validação </h2>
+<pre>
+Instalação
+<p>Instale o pacote</p>
+<p><b>composer require lucascudo/laravel-pt-br-localization --dev</b></p>
+<p>Publique as traduções</p>
+<p>php artisan vendor:publish --tag=laravel-pt-br-localization</p>
+<p>Configure o Framework para utilizar 'pt-BR' como linguagem padrão</p>
+<p>// Altere Linha 83 do arquivo config/app.php para:</p>
+<p>'locale' => 'pt-BR',</p>
+<p>Caso deseje, configure o Framework para utilizar 'America/Sao_Paulo' como data hora padrão</p>
+<p>// Altere Linha 70 do arquivo config/app.php para:</p>
+<p>'timezone' => 'America/Sao_Paulo',</p>
+</pre>
+
+<pre>
+    <p>Criando chave Primária no migration:</p>
+    <p>$table->unsignedBigInteger('id')</p>
+</pre>
+<pre>
+    <p>DB::statement('sua query')</p>
+    <p>Permite executar uma query no bando de dados</p>
+</pre>
+
+
+
+Middleawares atua na interceptação (request) do protocolo http.
+Para criar um middleware no Laravel, você pode usar o comando php artisan make:middleware NomeDoMiddleware. Isso criará um novo arquivo no diretório app/Http/Middleware com o nome fornecido, onde você pode adicionar a lógica do seu middleware. Lembre-se de registrá-lo no kernel do aplicativo (app/Http/Kernel.php) para que ele seja executado corretamente.
+
+
+</body>
+</html>

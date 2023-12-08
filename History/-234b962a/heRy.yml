@@ -1,0 +1,27 @@
+version: '2.2'
+services:
+  web:
+    image: hiltonbanes/wintercms:latest
+    init: true
+    restart: always
+    ports:
+      - 8080:80
+    environment:
+      - TZ=America/Denver
+    volumes:
+      - C:\projetos\test\.env:/var/www/html/.env
+      - C:\projetos\test\plugins:/var/www/html/plugins
+      - C:\projetos\test\storage\app:/var/www/html/storage/app
+      - C:\projetos\test\storage\logs:/var/www/html/storage/logs
+      - C:\projetos\test\storage\database.sqlite:/var/www/html/storage/database.sqlite
+      - C:\projetos\test\themes:/var/www/html/themes
+
+  cron:
+    image: hiltonbanes/wintercms:latest
+    init: true
+    restart: always
+    command: [cron, -f]
+    environment:
+      - TZ=America/Denver
+    volumes_from:
+      - web

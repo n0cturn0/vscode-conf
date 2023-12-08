@@ -1,0 +1,10 @@
+Operadores 
+Potencia 
+5 ** 2 = 25
+
+Ordem de precedência dos Operadores
+
+()
+**
+*/%
++-

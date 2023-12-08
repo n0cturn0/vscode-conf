@@ -1,0 +1,20 @@
+# docker-compose.yml
+version: '2.2'
+services:
+  web:
+    image: webmago/winter
+    ports:
+      - 8080:80
+    volumes:
+      - c:\projetos\teste:/var/www/html
+  db:
+    image: mysql:5.7
+    container_name: wintercms-db
+    environment:
+      MYSQL_DATABASE: wintercms
+      MYSQL_USER: root
+      MYSQL_PASSWORD: 123456
+    ports:
+      - 3306:3306
+    volumes:
+      - db-volume:/var/lib/mysql

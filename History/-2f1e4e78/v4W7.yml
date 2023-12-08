@@ -1,0 +1,130 @@
+version: "3.9"
+
+services:
+  app-itsm-hom:
+    image: harbor.psgtecnologiaaplicada.com.br/psgitsm/hom-agetec:${VERSION_IMG}
+    restart: always
+    networks:
+      - default
+    container_name: app_itsm_hom
+    shm_size: "10gb"
+    deploy:
+      resources:
+        limits:
+          memory: 1024M
+    environment:
+      - TZ: America/Campo_Grande
+      - GLPI_DB_HOST: 10.100.1.80
+      - GLPI_DB_USER: root
+      - GLPI_DB_PASSWORD: P@sg2019
+      - GLPI_DB_DATABASE: psgitsm
+      - COMPONENT_ALERT_EMAIL: jcavalcante@inovvati.com.br
+      - TERM_ENTREGA: http://10.100.1.83:82/gat/pdf/termo-entrega/
+      - TERMOS: http://10.100.1.83:82/gat/pdf/
+      - DB_HOST: 10.100.1.80
+      - DB_PORT: 3306
+      - DB_USER: psgitsm_homologacao_agetec
+      - DB_PASS: 6fpPBb53KmXn
+      - DB_NAME: psgitsm_homologacao_agetec
+      - URL_JASPER: http://psgitsm-jasper.psgtecnologiaaplicada.com.br:8888/jasperserver/flow.html?_flowId:viewReportFlow&standAlone:true
+      - CAMINHO_AMBIENTE_JASPER: Agetec
+      - URL_AOP: http://appdev.psg.local:3001
+      - USER_AOP: admin@psg.com
+      - PASS_AOP: ouhdnfliafjgn0O43TN20OINnigsd
+      - CATALOGO_INFRA_PUBLICACAO: [524, 525]
+      - PERFIL_DGSIS_DIRETORIA: 65
+      - PERFIL_DGSIS_ANALISTA: 62
+      - PERFIL_DGSIS_NEGOCIO: 60
+      - PERFIL_SUPORTE_SISTEMAS_N2: 70
+      - PERFIL_SUPER_ADMIN: 4
+    ports:
+      - 81:80
+    volumes:
+      - "/var/public/PSGITSM_HOM_AND_SERVICES/PSGITSM/data/files:/var/www/html/psgitsm/files:rw"
+      - "/SISTEMAS/PSGITSM/SESSIONS:/var/www/html/psgitsm/files/_sessions:rw"
+      - "/NFS/HOM/PSGITSM_HOM_AND_SERVICES/PSGITSM/data/config:/var/www/html/psgitsm/config:ro"
+
+  app-itsm-hom-sesau:
+    image: harbor.psgtecnologiaaplicada.com.br/psgitsm/hom-agetec:${VERSION_IMG}
+    restart: always
+    networks:
+      - default
+    container_name: app_itsm_hom_sesau
+    shm_size: "10gb"
+    deploy:
+      resources:
+        limits:
+          memory: 1024M
+    environment:
+      TZ: America/Campo_Grande
+    ports:
+      - 88:80
+    volumes:
+      - "/var/public/PSGITSM_HOM_SESAU/PSGITSM/data/files:/var/www/html/psgitsm/files:rw"
+      - "/NFS/HOM/PSGITSM_HOM_SESAU/PSGITSM/data/config:/var/www/html/psgitsm/config:ro"
+      - "/SISTEMAS/PSGITSM/SESSIONS:/var/www/html/psgitsm/files/_sessions:rw"
+
+  app-itsm-hom-semed:
+    image: harbor.psgtecnologiaaplicada.com.br/psgitsm/hom-agetec:${VERSION_IMG}
+    restart: always
+    networks:
+      - redeinterna
+    container_name: app_itsm_hom_semed
+    shm_size: "10gb"
+    deploy:
+      resources:
+        limits:
+          memory: 1024M
+    environment:
+      TZ: America/Campo_Grande
+    ports:
+      - 89:80
+    volumes:
+      - "/var/public/PSGITSM_HOM_SEMED/PSGITSM/data/files:/var/www/html/psgitsm/files:rw"
+      - "/NFS/HOM/PSGITSM_HOM_SEMED/PSGITSM/data/config:/var/www/html/psgitsm/config:ro"
+      - "/SISTEMAS/PSGITSM/SESSIONS:/var/www/html/psgitsm/files/_sessions:rw"
+
+  app-itsm-hom-impcg:
+    image: harbor.psgtecnologiaaplicada.com.br/psgitsm/hom-agetec:${VERSION_IMG}
+    restart: always
+    networks:
+      - default
+    container_name: app_itsm_hom_impcg
+    shm_size: "10gb"
+    deploy:
+      resources:
+        limits:
+          memory: 1024M
+    environment:
+      TZ: America/Campo_Grande
+    ports:
+      - 91:80
+    volumes:
+      - "/NFS/HOM/PSGITSM_HOM_IMPCG/PSGITSM/data/files:/var/www/html/psgitsm/files:rw"
+      - "/NFS/HOM/PSGITSM_HOM_IMPCG/PSGITSM/data/config:/var/www/html/psgitsm/config:ro"
+      - "/SISTEMAS/PSGITSM/SESSIONS:/var/www/html/psgitsm/files/_sessions:rw"
+
+  app-itsm-dev:
+    image: harbor.psgtecnologiaaplicada.com.br/psgitsm/hom-agetec:${VERSION_IMG}
+    restart: always
+    networks:
+      - redeinterna
+    container_name: app_itsm_dev
+    shm_size: "10gb"
+    deploy:
+      resources:
+        limits:
+          memory: 1024M
+    environment:
+      TZ: America/Campo_Grande
+    ports:
+      - 90:80
+    volumes:
+      - "/NFS/HOM/PSGITSM_AGETEC_DEV/PSGITSM/data/files:/var/www/html/psgitsm/files:rw"
+      - "/NFS/HOM/PSGITSM_AGETEC_DEV/PSGITSM/data/config:/var/www/html/psgitsm/config:ro"
+      - "/SISTEMAS/PSGITSM/SESSIONS:/var/www/html/psgitsm/files/_sessions:rw"
+
+networks:
+  redeinterna:
+    external: true
+     

@@ -1,0 +1,9 @@
+# docker-compose.yml
+version: '2.2'
+services:
+  web:
+    image: webmago/winter
+    ports:
+      - 80:80
+    volumes:
+      - ${PWD}:/var/www/html/plugins/aspendigital/resizer

@@ -1,0 +1,32 @@
+version: '3.5'
+
+# Services
+services:
+
+  # PHP FPM Service
+  php:
+    container_name: wintercmd-php
+    build:
+      dockerfile: Dockerfile
+      context: .
+    volumes:
+      - 'C:\projetos\php-winter\winter:/var/www/html'
+      - './php-logging.conf:/usr/local/etc/php-fpm.d/zz-log.conf'
+    networks:
+      - mynetwork
+   
+
+  # Nginx Service
+  nginx:
+    container_name: web
+    image: nginx:latest
+    ports:
+      - 8080:80
+    links:
+      - 'php'
+    volumes:
+      - 'C:\projetos\php-winter\winter:/var/www/html'
+      - './nginx-conf:/etc/nginx/conf.d'
+   
+
+

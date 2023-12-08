@@ -1,0 +1,6 @@
+# Para uso no Docker
+# USER => seu usuário do host
+# UID => ID do seu usuário (para descobrir => $ id -u)
+# GID => ID do seu grupo (para descobrir => $ id -g)
+UID=1000
+GID=888

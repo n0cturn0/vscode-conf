@@ -1,0 +1,15 @@
+DOM
+Document Object Model
+
+Arvore DOM
+
+Browser 
+    - DOM 
+        - Window 
+        -location
+        -Document
+        -hostory
+
+    - HTML
+        -head
+        -body

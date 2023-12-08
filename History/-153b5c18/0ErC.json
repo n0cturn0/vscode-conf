@@ -1,0 +1,7 @@
+{
+    "tabnine.experimentalAutoImports": true,
+    "redhat.telemetry.enabled": true,
+    "git.confirmSync": false,
+    "workbench.editor.empty.hint": "hidden",
+    "bitoAI.codeCompletion.setAutoCompletionTriggerLogic": 250
+}

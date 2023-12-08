@@ -1,0 +1,14 @@
+# docker-compose.yml
+version: '2.2'
+services:
+  web:
+    image: webmago/winter
+    ports:
+      - 8080:80
+    volumes:
+      - c:\projetos\teste:/var/www/html
+    resources:
+      limits:
+        memory: 256M
+      reservations:
+        memory: 128M

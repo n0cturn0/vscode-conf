@@ -1,0 +1,11 @@
+Converter String para Numerto
+
+Number.parseInt(n)
+Number.parseFloat(n)
+Number(n)
+
+
+
+Conveter Numero para String
+String(n)
+n.toStgring(n)

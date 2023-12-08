@@ -1,0 +1,42 @@
+version: "3"
+
+services:
+  PSGITSM_servicedesk:
+    image: ubuntu-php:local-xdebug
+    ports:
+      - "80:80"
+      - "443:443"
+    volumes:
+      - C:\inovvati\src\PSGITSM_servicedesk:/var/www/html
+    environment:
+      TZ: America/Campo_Grande
+      AMBIENTE: hom
+      GLPI_DB_HOST: 172.23.0.2
+      GLPI_DB_USER: root
+      GLPI_DB_PASSWORD: 123456
+      GLPI_DB_DATABASE: psgitsm
+      COMPONENT_ALERT_EMAIL: jcavalcante@inovvati.com.br
+      TERM_ENTREGA: http://10.100.1.83:82/gat/pdf/termo-entrega/
+      TERMOS: http://10.100.1.83:82/gat/pdf/
+      DB_HOST: 172.23.0.2
+      DB_PORT: 3306
+      DB_USER: root
+      DB_PASS: 123456
+      DB_NAME: psgitsm
+      URL_JASPER: http://psgitsm-jasper.psgtecnologiaaplicada.com.br:8888/jasperserver/flow.html?_flowId:viewReportFlow&standAlone:true
+      CAMINHO_AMBIENTE_JASPER: Agetec
+      URL_AOP: http://appdev.psg.local:3001
+      USER_AOP: admin@psg.com
+      PASS_AOP: ouhdnfliafjgn0O43TN20OINnigsd
+      CATALOGO_INFRA_PUBLICACAO: \[524, 525\]
+      PERFIL_DGSIS_DIRETORIA: 65
+      PERFIL_DGSIS_ANALISTA: 62
+      PERFIL_DGSIS_NEGOCIO: 60
+      PERFIL_SUPORTE_SISTEMAS_N2: 70
+      PERFIL_SUPER_ADMIN: 4
+    networks:
+      - mynetwork
+
+networks:
+  mynetwork:
+    external: true

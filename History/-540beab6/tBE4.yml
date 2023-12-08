@@ -1,0 +1,35 @@
+version: '3.5'
+
+# Networks
+networks:
+  mynetwork:
+    driver: bridge
+
+# Services
+services:
+
+  # PHP FPM Service
+  php:
+    container_name: php
+    build:
+      dockerfile: Dockerfile
+      context: .
+    volumes:
+      - 'C:\projetos\php-winter\winter:/var/www/html'
+      - './php-logging.conf:/usr/local/etc/php-fpm.d/zz-log.conf'
+    networks:
+      - winternetwork
+
+  # Nginx Service
+  nginx:
+    container_name: web
+    image: nginx:latest
+    ports:
+      - 8080:80
+    links:
+      - 'php'
+    volumes:
+      - 'C:\projetos\php-winter\winter:/var/www/html'
+      - './nginx-conf:/etc/nginx/conf.d'
+    networks:
+      - winternetwork

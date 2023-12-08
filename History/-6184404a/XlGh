@@ -1,0 +1,20 @@
+# Use the official httpd image as the base image
+FROM httpd:2.4-alpine
+
+# Copy your Apache configuration files
+COPY ./httpd.conf /usr/local/apache2/conf/httpd.conf
+COPY ./httpd-vhosts.conf /usr/local/apache2/conf/extra/httpd-vhosts.conf
+
+# Copy your PHP files to the htdocs directory
+COPY C:\projetos\alpine\winter /usr/local/apache2/htdocs/
+
+# Dependencies on php-fpm
+# (Note: links are deprecated, you can use service names as hostnames)
+RUN apk --no-cache add curl \
+    && while true; do curl -s php-fpm:9000 && break || sleep 5; done
+
+# Expose port 80
+EXPOSE 80
+
+# Start Apache in the foreground
+CMD ["httpd", "-D", "FOREGROUND"]

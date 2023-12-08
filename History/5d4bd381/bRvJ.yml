@@ -1,0 +1,19 @@
+version: '3.5'
+services:
+    database:
+        image: mysql
+        ports:
+            - "3306:3306"  # Corrigi a ordem da porta no contêiner e no host
+        environment:
+            MYSQL_ROOT_PASSWORD: 123456
+            MYSQL_DATABASE: winter
+            MYSQL_USER: winter
+            MYSQL_PASSWORD: 123456
+        volumes:
+            - db-volume:/var/lib/mysql
+volumes:
+    db-volume:
+
+networks:
+  redecms:
+    external: true

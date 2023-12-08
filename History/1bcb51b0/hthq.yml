@@ -1,0 +1,9 @@
+# docker-compose.yml
+version: '2.2'
+services:
+  web:
+    image: hiltonbanes/wintercms
+    ports:
+      - 8080:80
+    volumes:
+      - c:\projetos\new\winter:/var/www/html/winter
